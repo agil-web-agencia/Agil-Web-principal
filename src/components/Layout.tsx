@@ -19,6 +19,7 @@ import Lenis from 'lenis';
 import BookingModal from './BookingModal';
 import CaseStudyModal from './CaseStudyModal';
 import ToastContainer from './ToastContainer';
+import AIChatWidget from './AIChatWidget';
 import AgilwebLogo from './AgilwebLogo';
 import { useApp } from '../context/AppContext';
 
@@ -335,6 +336,7 @@ export default function Layout({ children }: LayoutProps) {
       <BookingModal />
       <CaseStudyModal />
       <ToastContainer />
+      <AIChatWidget />
 
       {/* Footer with Agilweb Conversion Focus */}
       {!isOnboarding && (
