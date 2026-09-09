@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-primary: #13ec5b;
+  --color-primary-glow: #00f59b;
+  --color-secondary: #8b5cf6;
+  --color-accent: #38bdf8;
+  --color-bg-dark: #070709;
+  --color-bg-darker: #030304;
+  --color-surface-dark: #101116;
+  --color-surface-card: rgba(18, 19, 26, 0.7);
+}
+
+@layer base {
+  body {
+    @apply bg-[#070709] text-white font-sans selection:bg-[#13ec5b]/30 selection:text-white antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .glass-panel {
+    background: rgba(18, 20, 29, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-panel-glow {
+    background: radial-gradient(120% 120% at 50% 0%, rgba(19, 236, 91, 0.06) 0%, rgba(18, 20, 29, 0.7) 100%);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(19, 236, 91, 0.2);
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 30px rgba(19, 236, 91, 0.6);
+  }
+
+  .text-glow-violet {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 50px rgba(19, 236, 91, 0.25);
+  }
+
+  .shadow-glow-sm {
+    box-shadow: 0 0 25px rgba(19, 236, 91, 0.15);
+  }
+
+  .shadow-glow-violet {
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.25);
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to right, rgba(19, 236, 91, 0.5), rgba(139, 92, 246, 0.5)) 1;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+::-webkit-scrollbar-thumb {
+  background: #232530;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #13ec5b;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

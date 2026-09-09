@@ -1,0 +1,8 @@
+{
+  "name": "Agilweb - Páginas Web de Alta Conversión para Microempresas y Emprendimientos",
+  "description": "Agencia digital especializada en crear páginas web de alto impacto para microempresas y emprendimientos. Diseñadas para convertir visitas en clientes reales y acelerar tu facturación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
