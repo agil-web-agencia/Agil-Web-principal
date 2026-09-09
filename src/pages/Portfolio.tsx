@@ -100,7 +100,7 @@ export default function Portfolio() {
               >
                 <ThreeFloatingCard
                   onClick={() => openCaseStudy(project.id)}
-                  dataCursor="Ver 3D"
+                  dataCursor="Ver Caso"
                   className="cursor-pointer h-full"
                 >
                   <div className="relative aspect-[16/11] overflow-hidden rounded-t-3xl">

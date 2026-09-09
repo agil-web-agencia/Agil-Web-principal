@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar as CalendarIcon, Clock, CheckCircle, Video, ArrowRight, User, Mail, Building, Phone } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -6,6 +6,19 @@ import { useApp } from '../context/AppContext';
 export default function BookingModal() {
   const { isBookingOpen, closeBooking, showToast } = useApp();
   const [step, setStep] = useState<'datetime' | 'details' | 'confirmed'>('datetime');
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        resetAndClose();
+      }
+    };
+    if (isBookingOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isBookingOpen]);
   
   // Selected date & slot
   const today = new Date();
@@ -67,7 +80,10 @@ export default function BookingModal() {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div 
+        className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 overflow-hidden"
+        data-lenis-prevent="true"
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -82,7 +98,9 @@ export default function BookingModal() {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-3xl glass-panel border border-white/15 bg-[#0d0d12]/95 rounded-3xl shadow-2xl p-6 sm:p-10 z-10 overflow-hidden"
+          className="relative w-full max-w-3xl max-h-[90vh] glass-panel border border-white/15 bg-[#0d0d12]/95 rounded-3xl shadow-2xl p-6 sm:p-10 z-10 overflow-y-auto overscroll-contain"
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
         >
           {/* Background subtle glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[90px] pointer-events-none" />

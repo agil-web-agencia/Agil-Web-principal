@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -37,7 +37,8 @@ export default function Layout({ children }: LayoutProps) {
   const [audioEnabled, setAudioEnabled] = useState(false);
 
   const location = useLocation();
-  const { openBooking, showToast } = useApp();
+  const { openBooking, showToast, activeCaseStudy, isBookingOpen } = useApp();
+  const lenisRef = useRef<Lenis | null>(null);
 
   // Initialize Lenis Smooth Scroll
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function Layout({ children }: LayoutProps) {
       smoothWheel: true,
       touchMultiplier: 1.5,
     });
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -57,8 +59,29 @@ export default function Layout({ children }: LayoutProps) {
     return () => {
       cancelAnimationFrame(reqId);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Lock body scroll and pause Lenis when a modal is active
+  useEffect(() => {
+    const isModalOpen = Boolean(activeCaseStudy || isBookingOpen);
+    if (isModalOpen) {
+      lenisRef.current?.stop();
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [activeCaseStudy, isBookingOpen]);
 
   useEffect(() => {
     // Detect touch device

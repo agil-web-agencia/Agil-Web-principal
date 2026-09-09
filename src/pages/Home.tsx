@@ -167,7 +167,7 @@ export default function Home() {
             <ThreeFloatingCard
               key={project.id}
               onClick={() => openCaseStudy(project.id)}
-              dataCursor="Ver 3D"
+              dataCursor="Ver Caso"
               className="cursor-pointer"
             >
               <div className="relative aspect-[16/11] overflow-hidden">
