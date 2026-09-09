@@ -45,7 +45,8 @@ DESCRIPCIÓN ADICIONAL:
 ${projectState.projectDescription || 'Sin notas adicionales'}
 
 =========================================
-Agilweb Digital Studio • contacto@agilweb.io
+Agil Web • agilweb.agencia@gmail.com
+Teléfonos: +57 315 287 4596 / +57 310 356 4825
 =========================================`;
 
     const blob = new Blob([briefText], { type: 'text/plain;charset=utf-8' });
@@ -122,7 +123,7 @@ Agilweb Digital Studio • contacto@agilweb.io
           </button>
 
           <a
-            href="https://wa.me/34600000000?text=Hola%20Agilweb,%20he%20enviado%20mi%20proyecto"
+            href="https://wa.me/573152874596?text=Hola%20Agilweb,%20he%20enviado%20mi%20proyecto"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3.5 bg-primary text-[#070709] font-black rounded-xl text-xs uppercase tracking-wider shadow-glow hover:bg-white transition-all transform hover:scale-102"

@@ -146,35 +146,37 @@ export default function ThreeHeroCanvas({
     edgeGeos.forEach(g => g.dispose());
     glowEdgeGeos.forEach(g => g.dispose());
 
-    // 2. High-Performance Standard Materials (No heavy transmission pass)
+    // 2. High-Performance Standard Materials (Configured with ~60% opacity for a soft, elegant 3D click aesthetic)
     const borderMaterial = new THREE.MeshStandardMaterial({
       color: 0x080e0a,
       emissive: 0x02160a,
-      emissiveIntensity: 0.35,
-      roughness: 0.18,
-      metalness: 0.92
+      emissiveIntensity: 0.22,
+      roughness: 0.22,
+      metalness: 0.85,
+      transparent: true,
+      opacity: 0.60
     });
 
     const fillMaterial = new THREE.MeshStandardMaterial({
       color: 0x0d2015,
       emissive: 0x052e15,
-      emissiveIntensity: 0.45,
-      roughness: 0.15,
-      metalness: 0.6,
+      emissiveIntensity: 0.30,
+      roughness: 0.18,
+      metalness: 0.55,
       transparent: true,
-      opacity: 0.85
+      opacity: 0.60
     });
 
     const greenWireframeMaterial = new THREE.LineBasicMaterial({
       color: 0x13ec5b,
       transparent: true,
-      opacity: 0.92
+      opacity: 0.60
     });
 
     const softGlowWireframeMaterial = new THREE.LineBasicMaterial({
       color: 0x22ff6e,
       transparent: true,
-      opacity: 0.28,
+      opacity: 0.18,
       blending: THREE.AdditiveBlending
     });
 
@@ -356,7 +358,7 @@ export default function ThreeHeroCanvas({
     };
 
     const handleClick = () => {
-      clickPulse = 1.0;
+      clickPulse = 0.4; // Softened click reaction so it's subtle and not too abrupt
     };
 
     if (interactive) {

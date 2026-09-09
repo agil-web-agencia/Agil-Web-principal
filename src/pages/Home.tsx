@@ -50,7 +50,7 @@ export default function Home() {
       {/* Hero Section with Interactive 3D WebGL Background */}
       <section className="relative min-h-[92vh] sm:min-h-[95vh] flex flex-col items-center justify-center px-3 sm:px-8 py-16 sm:py-20 overflow-hidden w-full">
         {/* Interactive Three.js Background Canvas */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 opacity-60 pointer-events-auto">
           <ThreeHeroCanvas />
         </div>
 
@@ -114,19 +114,22 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Live Telemetry / Social Proof Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 pt-4 sm:pt-8 text-[10px] sm:text-[11px] text-white/60 font-mono pointer-events-auto max-w-full px-2">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">
-              <Star className="text-primary fill-primary shrink-0" size={12} />
-              <span>4.9/5 SATISFACCIÓN</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">
-              <Zap className="text-primary shrink-0" size={12} />
-              <span>&lt;0.5s EN MÓVILES</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">
-              <ShieldCheck className="text-primary shrink-0" size={12} />
-              <span>100% PROPIEDAD</span>
+          {/* Live Telemetry / Social Proof Badges with High-Contrast Glassmorphic Container */}
+          <div className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-[#070709]/85 backdrop-blur-md sm:backdrop-blur-xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.7)] relative overflow-hidden group pointer-events-auto mx-auto max-w-2xl w-full">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-70 pointer-events-none" />
+            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 text-[11px] sm:text-xs font-mono relative z-10">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white shadow-sm">
+                <Star className="text-primary fill-primary shrink-0" size={14} />
+                <span className="font-bold tracking-wide">4.9/5 SATISFACCIÓN</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white shadow-sm">
+                <Zap className="text-primary shrink-0" size={14} />
+                <span className="font-bold tracking-wide">&lt;0.5s EN MÓVILES</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white shadow-sm">
+                <ShieldCheck className="text-primary shrink-0" size={14} />
+                <span className="font-bold tracking-wide">100% PROPIEDAD</span>
+              </div>
             </div>
           </div>
         </motion.div>

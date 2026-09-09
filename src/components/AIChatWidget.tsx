@@ -59,7 +59,7 @@ export default function AIChatWidget() {
 
     try {
       // Llamada segura a /api/chat (Cloudflare Pages Function)
-      const systemContext = `Eres el asistente oficial de Agilweb, una agencia experta en diseño y desarrollo web de alta conversión para microempresas y emprendimientos. Responde de forma amable, clara, breve y enfocada a impulsar al usuario a agendar una asesoría gratuita o usar el cotizador. Pregunta del usuario: ${promptText}`;
+      const systemContext = `Eres el asistente oficial de Agil Web (agilweb.agencia@gmail.com, teléfonos/WhatsApp +57 315 287 4596 y +57 310 356 4825), una agencia experta en diseño y desarrollo web de alta conversión para microempresas y emprendimientos. Responde de forma amable, clara, breve y enfocada a impulsar al usuario a agendar una asesoría gratuita, escribirnos por WhatsApp o usar el cotizador. Pregunta del usuario: ${promptText}`;
 
       const aiResponseText = await enviarMensaje(systemContext);
 

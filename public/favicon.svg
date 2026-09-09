@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="agilweb-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13EC5B" />
+      <stop offset="50%" stop-color="#00F59B" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="agilweb-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="agilweb-core" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#13EC5B" />
+    </linearGradient>
+    <filter id="agilweb-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base Container -->
+  <rect width="100" height="100" rx="22" fill="#070709" />
+  <rect width="98" height="98" x="1" y="1" rx="21" fill="none" stroke="#13EC5B" stroke-opacity="0.3" stroke-width="1.5" />
+
+  <!-- Kinetic 3D Isometric 'A' Prism Symbol -->
+  <g filter="url(#agilweb-glow)">
+    <!-- Base Triangular Prism Facet -->
+    <polygon 
+      points="50,6 92,78 72,78 50,42 28,78 8,78" 
+      fill="url(#agilweb-grad-1)" 
+    />
+
+    <!-- Inner Dimensional Bridge Crossbar -->
+    <polygon 
+      points="50,48 70,82 58,94 42,94 30,82" 
+      fill="url(#agilweb-grad-2)" 
+      opacity="0.9" 
+    />
+
+    <!-- Central Apex Core Prism -->
+    <polygon 
+      points="50,14 62,38 38,38" 
+      fill="url(#agilweb-core)" 
+      opacity="0.95" 
+    />
+
+    <!-- Quantum Vertex Spark Nodes -->
+    <circle cx="50" cy="8" r="3.5" fill="#FFFFFF" />
+    <circle cx="92" cy="78" r="2.5" fill="#13EC5B" />
+    <circle cx="8" cy="78" r="2.5" fill="#8B5CF6" />
+  </g>
+</svg>

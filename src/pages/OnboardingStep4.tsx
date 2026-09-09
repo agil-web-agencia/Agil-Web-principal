@@ -154,7 +154,7 @@ export default function OnboardingStep4() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+34 612 345 678"
+                      placeholder="+57 315 287 4596"
                       value={clientPhone}
                       onChange={e => setClientPhone(e.target.value)}
                       className="w-full px-4 py-3.5 bg-white/5 border border-white/15 rounded-xl text-white placeholder-white/25 text-sm focus:outline-none focus:border-primary transition-colors font-sans"

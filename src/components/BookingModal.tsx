@@ -233,7 +233,7 @@ export default function BookingModal() {
                   </label>
                   <input
                     type="tel"
-                    placeholder="+34 600 000 000"
+                    placeholder="+57 315 287 4596"
                     value={formData.phone}
                     onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-white placeholder-white/25 text-sm focus:outline-none focus:border-primary transition-colors font-sans"

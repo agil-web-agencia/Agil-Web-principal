@@ -12,7 +12,9 @@ import {
   ArrowUpRight,
   Volume2,
   VolumeX,
-  Award
+  Award,
+  Phone,
+  Mail
 } from 'lucide-react';
 import Lenis from 'lenis';
 import BookingModal from './BookingModal';
@@ -85,9 +87,9 @@ export default function Layout({ children }: LayoutProps) {
   }, [location.pathname]);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('hola@agilweb.com');
+    navigator.clipboard.writeText('agilweb.agencia@gmail.com');
     setEmailCopied(true);
-    showToast('Email copiado al portapapeles: hola@agilweb.com', 'success');
+    showToast('Email copiado al portapapeles: agilweb.agencia@gmail.com', 'success');
     setTimeout(() => setEmailCopied(false), 2500);
   };
 
@@ -346,24 +348,56 @@ export default function Layout({ children }: LayoutProps) {
                   Agencia de diseño y desarrollo web especializada en microempresas, negocios locales y emprendimientos. Creamos páginas web modernas, rápidas y pensadas para captar clientes y aumentar tus ventas.
                 </p>
 
-                <div className="flex items-center gap-3 pt-2">
-                  <button
-                    onClick={handleCopyEmail}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-mono text-white transition-colors"
-                    data-cursor="Copiar"
-                  >
-                    {emailCopied ? <Check size={14} className="text-primary" /> : <Copy size={14} />}
-                    <span>hola@agilweb.com</span>
-                  </button>
+                {/* Direct Contact Links */}
+                <div className="space-y-3 pt-2">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleCopyEmail}
+                      className="flex items-center gap-2 px-3.5 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-mono text-white transition-colors"
+                      data-cursor="Copiar"
+                      title="Copiar correo de Agil Web"
+                    >
+                      {emailCopied ? <Check size={14} className="text-primary" /> : <Copy size={14} />}
+                      <span className="truncate">agilweb.agencia@gmail.com</span>
+                    </button>
+                    <a
+                      href="mailto:agilweb.agencia@gmail.com"
+                      className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white/70 hover:text-primary transition-colors text-xs"
+                      title="Enviar email directo"
+                    >
+                      <Mail size={15} />
+                    </a>
+                  </div>
 
-                  <button
-                    onClick={() => openBooking()}
-                    className="p-2.5 bg-primary/10 border border-primary/30 text-primary rounded-xl text-xs font-bold hover:bg-primary hover:text-[#070709] transition-all"
-                    data-cursor="Asesoría"
-                    title="Agendar asesoría"
-                  >
-                    <Calendar size={16} />
-                  </button>
+                  {/* Phone & WhatsApp Lines */}
+                  <div className="flex flex-col gap-2 pt-1 font-mono text-xs">
+                    <div className="flex items-center gap-2 text-white/80">
+                      <Phone size={13} className="text-primary shrink-0" />
+                      <a href="tel:+573152874596" className="hover:text-primary transition-colors">+57 315 287 4596</a>
+                      <span className="text-white/20">•</span>
+                      <a
+                        href="https://wa.me/573152874596?text=Hola%20Agilweb,%20quiero%20cotizar%20mi%20página%20web"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary text-[10px] font-bold hover:bg-primary hover:text-[#070709] transition-colors"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-2 text-white/80">
+                      <Phone size={13} className="text-primary shrink-0" />
+                      <a href="tel:+573103564825" className="hover:text-primary transition-colors">+57 310 356 4825</a>
+                      <span className="text-white/20">•</span>
+                      <a
+                        href="https://wa.me/573103564825?text=Hola%20Agilweb,%20quiero%20cotizar%20mi%20página%20web"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary text-[10px] font-bold hover:bg-primary hover:text-[#070709] transition-colors"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -423,9 +457,15 @@ export default function Layout({ children }: LayoutProps) {
                   Agendar Asesoría Gratuita (30 Min)
                 </button>
 
-                <div className="text-[11px] text-white/40 font-mono pt-2 flex items-center justify-between">
-                  <span>📍 Atención Personalizada</span>
-                  <span className="text-primary">RESPUESTA EN &lt; 24H</span>
+                <div className="text-[11px] text-white/50 font-mono pt-2 flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between">
+                    <span>📍 Atención Personalizada</span>
+                    <span className="text-primary font-bold">RESPUESTA &lt; 24H</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white/70">
+                    <span>Llámanos:</span>
+                    <a href="tel:+573152874596" className="text-primary hover:underline font-bold">+57 315 287 4596</a>
+                  </div>
                 </div>
               </div>
             </div>

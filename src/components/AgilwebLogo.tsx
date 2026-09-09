@@ -99,12 +99,9 @@ export default function AgilwebLogo({
       {/* Brand Text Typography */}
       {showText && (
         <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5 leading-none">
+          <div className="flex items-center leading-none">
             <span className={`${textClass} font-black tracking-[-0.04em] text-white group-hover:text-primary transition-colors font-display`}>
               Agil<span className="text-primary group-hover:text-white transition-colors">web</span>
-            </span>
-            <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-white/10 text-primary/90 border border-primary/30">
-              WEB
             </span>
           </div>
         </div>
