@@ -107,12 +107,6 @@ export default function AgilwebLogo({
               WEB
             </span>
           </div>
-
-          {withBadge && (
-            <span className={`${subClass} text-gray-400 font-mono tracking-widest uppercase mt-0.5`}>
-              ESTUDIO DIGITAL // CONVERSIÓN
-            </span>
-          )}
         </div>
       )}
     </div>

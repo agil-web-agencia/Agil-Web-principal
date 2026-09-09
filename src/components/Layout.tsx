@@ -9,7 +9,6 @@ import {
   Check, 
   Sparkles, 
   Globe, 
-  Clock, 
   ArrowUpRight,
   Volume2,
   VolumeX,
@@ -33,7 +32,6 @@ export default function Layout({ children }: LayoutProps) {
   const [cursorText, setCursorText] = useState<string | null>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
-  const [timeString, setTimeString] = useState('');
   const [audioEnabled, setAudioEnabled] = useState(false);
 
   const location = useLocation();
@@ -58,24 +56,6 @@ export default function Layout({ children }: LayoutProps) {
       cancelAnimationFrame(reqId);
       lenis.destroy();
     };
-  }, []);
-
-  // Time ticker in Madrid / CET
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Europe/Madrid',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
-      setTimeString(new Intl.DateTimeFormat('es-ES', options).format(now));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -211,21 +191,8 @@ export default function Layout({ children }: LayoutProps) {
               })}
             </nav>
 
-            {/* Right Status & CTAs */}
-            <div className="hidden md:flex items-center gap-4">
-              {/* Status Pill & Clock */}
-              <div className="hidden xl:flex items-center gap-3 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-mono text-white/70">
-                <div className="flex items-center gap-1.5 text-primary">
-                  <span className="size-2 rounded-full bg-primary animate-pulse" />
-                  <span className="font-bold">AGENDA ABIERTA</span>
-                </div>
-                <span className="text-white/20">|</span>
-                <div className="flex items-center gap-1 text-white/60">
-                  <Clock size={12} className="text-primary/70" />
-                  <span>MADRID {timeString}</span>
-                </div>
-              </div>
-
+            {/* Right CTAs */}
+            <div className="hidden md:flex items-center gap-3">
               {/* Booking CTA */}
               <button
                 onClick={() => openBooking()}
